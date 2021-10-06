@@ -1,29 +1,20 @@
-import 'package:tutorial_bagdat/model/team.dart';
+import 'package:json_annotation/json_annotation.dart';
 
+import 'player_data.dart';
+import 'meta.dart';
+part 'player.g.dart';
+
+@JsonSerializable()
 class Player {
-  int id;
-  String first_name;
-  int? height_feet;
-  int? height_inches;
-  String last_name;
-  String position;
-  Team team = {} as Team;
-  int? weight_pounds;
+  List<PlayerData> data;
+  Meta meta;
 
-  Player(
-      {required this.id,
-      required this.first_name,
-      required this.last_name,
-      required this.team,
-      required this.position});
+  Player({
+    required this.data,
+    required this.meta,
+  });
 
-  factory Player.fromJson(Map<String, dynamic> json) {
-    return Player(
-      id: json['id'],
-      first_name: json['first_name'],
-      last_name: json['last_name'],
-      position: json['position'],
-      team: json['team'],
-    );
-  }
+  factory Player.fromJson(Map<String, dynamic> json) => _$PlayerFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PlayerToJson(this);
 }

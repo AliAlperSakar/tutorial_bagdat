@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tutorial_bagdat/screen/component/home_page.dart';
+import 'package:tutorial_bagdat/screen/home_page.dart';
 
 void main() {
   runApp(const MyApp());
